@@ -55,31 +55,58 @@ export const About: React.FC = () => {
               variants={itemVariants}
               className="text-lg font-rajdhani text-cyber-white-soft mb-6 leading-relaxed"
             >
+<<<<<<< HEAD
               Sou Desenvolvedor Full Stack, com sólida formação em Engenharia de Software, 
               Ciência de Dados e Inteligência Artificial, 
               atuando no desenvolvimento de soluções digitais inteligentes, 
               escaláveis e orientadas a resultados.
+=======
+              Olá! Sou um desenvolvedor Full Stack apaixonado por criar soluções web
+              inovadoras e eficientes. Com experiência em desenvolvimento front-end e
+              back-end, estou sempre buscando aprender novas tecnologias e aprimorar
+              minhas habilidades.
+>>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
             </motion.p>
 
             <motion.p
               variants={itemVariants}
               className="text-lg font-rajdhani text-cyber-white-soft mb-6 leading-relaxed"
             >
+<<<<<<< HEAD
               Nos últimos anos, concentrei minha atuação em Inteligência Artificial aplicada, trabalhando com LLMs, arquiteturas RAG, automações e agentes inteligentes capazes de resolver problemas reais de negócio. Desenvolvo soluções que combinam IA generativa, dados, automação e experiência do usuário, sempre com foco em confiabilidade, contexto e valor prático.
+=======
+              Minha jornada na programação começou com HTML, CSS e JavaScript, e
+              desde então tenho expandido meu conhecimento para incluir frameworks
+              modernos como React, Next.js, e tecnologias de back-end como Node.js.
+>>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
             </motion.p>
 
             <motion.p
               variants={itemVariants}
               className="text-lg font-rajdhani text-cyber-white-soft mb-6 leading-relaxed"
             >
+<<<<<<< HEAD
               Tenho forte preocupação com qualidade de código, boas práticas, arquitetura limpa e manutenibilidade, entendendo que software bem construído precisa ser sustentável a longo prazo. Ao mesmo tempo, acredito que experiência do usuário e design funcional são componentes essenciais para o sucesso de qualquer produto digital.
+=======
+              Recentemente, tenho me especializado em <span className="text-cyber-primary font-semibold">
+              Inteligência Artificial</span>, trabalhando com APIs como Google Gemini AI e 
+              ferramentas de automação como n8n, criando aplicações que combinam IA 
+              com experiência do usuário excepcional.
+>>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
             </motion.p>
 
             <motion.p
               variants={itemVariants}
               className="text-lg font-rajdhani text-cyber-white-soft mb-8 leading-relaxed"
             >
+<<<<<<< HEAD
               Atuo com postura analítica, visão sistêmica e mentalidade de melhoria contínua, buscando constantemente evoluir processos, tecnologias e resultados. Meu objetivo é entregar soluções robustas, inteligentes e alinhadas às necessidades do negócio, transformando tecnologia em vantagem competitiva.
+=======
+              Acredito que o bom design e a experiência do usuário são tão importantes
+              quanto o código bem escrito. Meu objetivo é criar aplicações que não apenas
+              funcionem bem, mas também proporcionem uma experiência agradável e
+              intuitiva para os usuários.
+>>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
             </motion.p>
 
             {/* Stats */}
@@ -88,7 +115,11 @@ export const About: React.FC = () => {
               className="grid grid-cols-3 gap-6"
             >
               {[
+<<<<<<< HEAD
                 { number: '4', label: 'Anos de Experiência' },
+=======
+                { number: '2+', label: 'Anos de Experiência' },
+>>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
                 { number: '15+', label: 'Projetos Concluídos' },
                 { number: '15+', label: 'Tecnologias Dominadas' },
               ].map((stat, index) => (
@@ -131,10 +162,17 @@ export const About: React.FC = () => {
                 icon: GraduationCap,
                 title: 'Formação',
                 items: [
+<<<<<<< HEAD
                   'Pós-graduação em Engenharia de Software',
                   'Pós-graduação Ciência de Dados e Big Data Analytics',
                   'Pós-graduação Lato Sensu em Inteligência Artificial (em andamento)',
                   'Graduado em Análise e Desenvolvimento de Sistemas',
+=======
+                  'Pós-graduação em Engenharia de Software (Cursando)',
+                  'Especialização em IA e APIs',
+                  'Certificações em Desenvolvimento Web',
+                  'Aprendizado Contínuo',
+>>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
                 ],
               },
               {
@@ -143,8 +181,13 @@ export const About: React.FC = () => {
                 items: [
                   'Código Limpo e Organizado',
                   'Experiência do Usuário',
+<<<<<<< HEAD
                   'Inovação com Inteligência Artificial',
                   'Qualidade, performance e escalabilidade',
+=======
+                  'Inovação com IA',
+                  'Qualidade e Performance',
+>>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
                 ],
               },
             ].map((card, index) => (

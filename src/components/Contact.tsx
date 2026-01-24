@@ -208,7 +208,11 @@ export const Contact: React.FC = () => {
           className="mt-20 pt-8 border-t border-cyber-primary/20 text-center"
         >
           <p className="font-rajdhani text-cyber-white-soft">
+<<<<<<< HEAD
             © 2024 Portfólio Profissional. Feito por Lucas Martins.
+=======
+            © 2024 Portfólio Profissional. Construído com React, TypeScript & Framer Motion.
+>>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
           </p>
         </motion.div>
       </div>

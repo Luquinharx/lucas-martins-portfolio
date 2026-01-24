@@ -2,9 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github, ShoppingCart, Dumbbell, Brain } from 'lucide-react';
+<<<<<<< HEAD
 import tecknowhowImg from '../img/tecknowhow.PNG';
 import dashImg from '../img/DASH.png';
 import gyntaskImg from '../img/gyntask.PNG';
+=======
+>>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
 
 export const Projects: React.FC = () => {
   const [ref, inView] = useInView({
@@ -14,6 +17,7 @@ export const Projects: React.FC = () => {
 
   const projects = [
     {
+<<<<<<< HEAD
       title: 'TecKnowHow — Landing Institucional',
       description: 'Landing focada em geração de leads e apresentação de serviços. Implementada para desempenho e SEO, com seções de serviços, provas sociais e formulário de contacto.',
       image: tecknowhowImg,
@@ -43,6 +47,37 @@ export const Projects: React.FC = () => {
       features: ['Gestão de membros e planos', 'Treinos e progressão personalizada', 'Painel de métricas e desempenho', 'Gestão de pagamentos e histórico'],
       liveUrl: null,
       githubUrl: null,
+=======
+      title: 'FitChat AI - Personal Trainer Virtual',
+      description: 'Chat disponível 24/7 que oferece orientações personalizadas de exercícios com inteligência artificial avançada. Desenvolvido com Next.js 14, TypeScript e Google Gemini 2.0.',
+      image: 'https://i.im.ge/2025/06/24/J2HNDK.CHAT.png',
+      technologies: ['Next.js 14', 'TypeScript', 'Google Gemini 2.0', 'Tailwind CSS'],
+      features: ['IA Google Gemini 2.0', 'Streaming de respostas', 'Interface responsiva', 'Tema claro/escuro'],
+      liveUrl: 'https://fitchat-ai.vercel.app/',
+      githubUrl: 'https://github.com/Luquinharx/FitChatAI',
+      category: 'IA/Fitness',
+      icon: Brain,
+    },
+    {
+      title: 'NextOne E-commerce',
+      description: 'E-commerce moderno desenvolvido com JavaScript e Node.js, oferecendo uma experiência de compra intuitiva para camisetas. Interface responsiva com CSS moderno.',
+      image: 'https://i.im.ge/2025/06/24/J2H8Iq.Nextone1.png',
+      technologies: ['JavaScript', 'CSS', 'HTML', 'Firebase'],
+      features: ['Interface responsiva', 'Catálogo de produtos', 'Carrinho de compras', 'Integração Firebase'],
+      liveUrl: '#',
+      githubUrl: 'https://github.com/Luquinharx/loja-camisetas',
+      category: 'E-commerce',
+      icon: ShoppingCart,
+    },
+    {
+      title: 'GymTask',
+      description: 'Aplicativo completo para gestão de academia e atletas de triathlon desenvolvido principalmente em TypeScript. Sistema robusto de gerenciamento com Firebase.',
+      image: 'https://i.im.ge/2025/06/24/J2HREp.gyn.png',
+      technologies: ['TypeScript', 'React', 'Firebase', 'Node.js'],
+      features: ['Gestão de alunos', 'Treinos personalizados', 'Dashboard intuitivo', 'Métricas em tempo real'],
+      liveUrl: 'https://gyntask.vercel.app',
+      githubUrl: 'https://github.com/Luquinharx/GymTask',
+>>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
       category: 'Gestão',
       icon: Dumbbell,
     },
@@ -117,6 +152,7 @@ export const Projects: React.FC = () => {
                   {/* Overlay Buttons */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="flex space-x-4">
+<<<<<<< HEAD
                       {project.liveUrl && (
                         <motion.a
                           href={project.liveUrl}
@@ -142,6 +178,26 @@ export const Projects: React.FC = () => {
                           <Github className="w-5 h-5 text-cyber-white" />
                         </motion.a>
                       )}
+=======
+                      <motion.a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 bg-cyber-primary/20 backdrop-blur-sm rounded-3xl border border-cyber-primary/30 hover:bg-cyber-primary/30 transition-all duration-300"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <ExternalLink className="w-5 h-5 text-cyber-primary" />
+                      </motion.a>
+                      <motion.a
+                        href={project.githubUrl}
+                        className="p-3 bg-cyber-white/20 backdrop-blur-sm rounded-3xl border border-cyber-white/30 hover:bg-cyber-white/30 transition-all duration-300"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Github className="w-5 h-5 text-cyber-white" />
+                      </motion.a>
+>>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
                     </div>
                   </div>
                 </div>

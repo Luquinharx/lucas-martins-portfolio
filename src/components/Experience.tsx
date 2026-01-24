@@ -11,6 +11,7 @@ export const Experience: React.FC = () => {
 
   const experiences = [
     {
+<<<<<<< HEAD
       company: 'Kyros Tecnologia | Fábrica de Software',
       position: 'Desenvolvedor',
       period: 'Jun de 2025 - Presente',
@@ -36,11 +37,24 @@ export const Experience: React.FC = () => {
         'Suporte a integrações via bancos de dados e APIs',
         'Correção de bugs e melhoria de estabilidade em módulos críticos',
         'Atendimento consultivo a clientes com diferentes níveis de complexidade',
+=======
+      company: 'Sankhya',
+      position: 'Consultor de Suporte - Dados',
+      period: '2025 - Presente',
+      location: 'Presencial',
+      description: 'Atendimento ao cliente final com foco em suporte técnico relacionado a integrações de sistemas e correção de bugs na plataforma. Atuação na análise e resolução de problemas como lentidão no sistema, falhas em buscas no banco de dados e integração com bases de dados externas.',
+      achievements: [
+        'Prestou suporte técnico especializado em integrações de dados',
+        'Corrigiu bugs e falhas em tempo real na plataforma',
+        'Solucionou problemas críticos de performance e lentidão',
+        'Atendeu clientes com diferentes níveis de complexidade e demandas',
+>>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
       ],
     },
     {
       company: 'iCrop Gestão de Irrigação',
       position: 'Assistente de Tecnologia',
+<<<<<<< HEAD
       period: 'jul de 2024 - fev de 2025',
       location: 'Híbrida',
       description:
@@ -64,6 +78,16 @@ export const Experience: React.FC = () => {
         'Participação em equipes de restauração de serviços críticos',
         'Atendimentos especializados com foco em diagnóstico e resolução',
         'Documentação de procedimentos e transferência de conhecimento',
+=======
+      period: ' jul de 2024 - fev de 2025',
+      location: 'Remoto',
+      description: 'Responsável pelo suporte técnico a clientes nacionais e internacionais, garantindo a continuidade dos sistemas e a resolução de falhas. Também atuei no suporte interno de TI, testes de sistemas e desenvolvimento de páginas web utilizando Node.js, JavaScript e React. Participei ativamente da análise de dados, automação de tarefas e integração com APIs de dispositivos climáticos.',
+      achievements: [
+        'Desenvolveu interfaces web com Node.js, JavaScript e React',
+        'Automatizou processos rotineiros, como leitura de PDFs de faturas de energia',
+        'Criou relatórios e dashboards estratégicos via análise de dados e banco de dados',
+        'Realizou integrações com APIs de medição climática e de chuva',
+>>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
       ],
     },
   ];
