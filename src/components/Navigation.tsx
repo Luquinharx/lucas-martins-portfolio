@@ -1,41 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { User, Code, Briefcase, FolderOpen, Award, Heart, MessageCircle } from 'lucide-react';
+import { User, Code, Briefcase, FolderOpen, Award, MessageCircle } from 'lucide-react';
 
 export const Navigation: React.FC = () => {
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState('about');
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'technologies', 'experience', 'projects', 'certificates', 'skills', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const sections = ['about', 'technologies', 'experience', 'projects', 'certificates', 'contact'];
+      const scrollPosition = window.scrollY + 300;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
 
+      // Se está no final da página, ativa contact
+      if (scrollPosition + windowHeight >= documentHeight - 100) {
+        setActiveSection('contact');
+        return;
+      }
+
+      let currentSection = 'about';
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
-          
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
+          if (scrollPosition >= offsetTop) {
+            currentSection = section;
           }
         }
       }
+      setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Chamar na montagem para inicializar corretamente
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { href: '#about', label: 'Sobre', icon: User },
-    { href: '#technologies', label: 'Tecnologias', icon: Code },
-    { href: '#experience', label: 'Experiência', icon: Briefcase },
-    { href: '#projects', label: 'Projetos', icon: FolderOpen },
-    { href: '#certificates', label: 'Certificados', icon: Award },
-    { href: '#skills', label: 'Habilidades', icon: Heart },
-    { href: '#contact', label: 'Contato', icon: MessageCircle },
+    { href: '#about', label: 'Sobre', icon: User, id: 'about' },
+    { href: '#technologies', label: 'Tecnologias', icon: Code, id: 'technologies' },
+    { href: '#experience', label: 'Experiência', icon: Briefcase, id: 'experience' },
+    { href: '#projects', label: 'Projetos', icon: FolderOpen, id: 'projects' },
+    { href: '#certificates', label: 'Certificados', icon: Award, id: 'certificates' },
+    { href: '#contact', label: 'Contato', icon: MessageCircle, id: 'contact' },
   ];
 
   return (
@@ -51,7 +58,8 @@ export const Navigation: React.FC = () => {
         
         <div className="space-y-4 relative z-10">
           {navItems.map((item, index) => {
-            const isActive = activeSection === item.href.substring(1);
+            const isActive = activeSection === item.id;
+            
             return (
               <motion.a
                 key={item.href}

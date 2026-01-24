@@ -14,25 +14,12 @@ export const Technologies: React.FC = () => {
       icon: Code,
       title: 'Frontend',
       color: 'cyber-primary',
-<<<<<<< HEAD
-      techs: ['Vue.js', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'CSS'],
-=======
       techs: ['Vue.js', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'CSS3'],
->>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
     },
     {
       icon: Database,
       title: 'Backend',
       color: 'cyber-secondary',
-<<<<<<< HEAD
-      techs: ['Node.js', 'Python', 'JavaScript', 'Arquitetura de APIs', 'Autenticação', 'Bancos de Dados' ],
-    },
-    {
-      icon: Brain,
-      title: 'IA & Automação',
-      color: 'cyber-accent',
-      techs: ['LLMs & Generative AI', 'RAG', 'LangChain', 'Prompt Engineering', 'AI Agents', 'n8n Automation'],
-=======
       techs: ['Node.js', 'Firebase', 'PostgreSQL', 'MongoDB', 'Next.js', 'API REST'],
     },
     {
@@ -40,27 +27,18 @@ export const Technologies: React.FC = () => {
       title: 'Inteligência Artificial',
       color: 'cyber-accent',
       techs: ['Google Gemini AI', 'n8n Automation', 'API Integration', 'Prompt Engineering', 'AI Workflows', 'Streaming AI'],
->>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
     },
     {
       icon: Wrench,
       title: 'Ferramentas',
       color: 'cyber-light',
-<<<<<<< HEAD
-      techs: ['Git & GitHub', 'SAS', 'Figma', 'Postman', 'DataStage', 'Webpack'],
-=======
       techs: ['Git', 'VS Code', 'Figma', 'Postman', 'NPM', 'Webpack'],
->>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
     },
     {
       icon: Globe,
       title: 'Metodologias',
       color: 'cyber-primary',
-<<<<<<< HEAD
-      techs: ['Scrum & Kanban', 'Clean Code', 'Responsive Design', 'Web Performance', 'UI/UX', 'SEO'],
-=======
       techs: ['Scrum', 'Responsive Design', 'Clean Code', 'UI/UX', 'SEO', 'Performance'],
->>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
     },
   ];
 
