@@ -11,10 +11,7 @@ import { Contact } from './components/Contact';
 import { GridBackground } from './components/GridBackground';
 
 function App() {
-<<<<<<< HEAD
   const SHOW_SOFT_SKILLS = false; // Toggle to show/hide SoftSkills on the site (keeps component in code)
-=======
->>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
   return (
     <div className="min-h-screen bg-cyber-black text-cyber-white relative overflow-x-hidden">
       <GridBackground />
@@ -26,11 +23,7 @@ function App() {
         <Experience />
         <Projects />
         <Certificates />
-<<<<<<< HEAD
         {SHOW_SOFT_SKILLS && <SoftSkills />}
-=======
-        <SoftSkills />
->>>>>>> da6cb79b05b53c7f5740e9c2b336712ed7c0ab6f
         <Contact />
       </main>
     </div>
