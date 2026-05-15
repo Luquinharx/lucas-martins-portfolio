@@ -32,8 +32,8 @@ export const About: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="section-shell">
+      <div className="section-container">
         <motion.div
           ref={ref}
           initial="hidden"
@@ -55,41 +55,41 @@ export const About: React.FC = () => {
               variants={itemVariants}
               className="text-lg font-rajdhani text-cyber-white-soft mb-6 leading-relaxed"
             >
-              Sou Desenvolvedor Full Stack, com sólida formação em Engenharia de Software, Ciência de Dados e Inteligência Artificial, atuando no desenvolvimento de soluções digitais inteligentes, com foco em performance, escalabilidade e experiência do usuário.
+              Sou desenvolvedor focado em Automação, RPA e Inteligência Artificial aplicada a negócios. Atuo desenvolvendo automações com n8n, Python, APIs, SQL e integrações, além de soluções avançadas com IA generativa, LLMs, arquiteturas RAG e agentes inteligentes para transformar processos repetitivos em fluxos eficientes.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
               className="text-lg font-rajdhani text-cyber-white-soft mb-6 leading-relaxed"
             >
-              Nos últimos anos, concentrei minha atuação em Inteligência Artificial aplicada, trabalhando com LLMs, arquiteturas RAG, automações e agentes inteligentes capazes de resolver problemas reais de negócio. Desenvolvo soluções que combinam IA generativa, dados, automação e experiência do usuário, sempre com foco em confiabilidade, contexto e valor prático.
+              Muitas empresas perdem tempo com tarefas operacionais e retrabalho. Minha atuação resolve esse problema reduzindo o trabalho manual e libertando os times para decisões estratégicas.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
               className="text-lg font-rajdhani text-cyber-white-soft mb-6 leading-relaxed"
             >
-              Tenho forte preocupação com qualidade de código, boas práticas, arquitetura limpa e manutenibilidade, entendendo que software bem construído precisa ser sustentável a longo prazo. Ao mesmo tempo, acredito que experiência do usuário e design funcional são componentes essenciais para o sucesso de qualquer produto digital.
+              Também possuo experiência em desenvolvimento web, utilizando tecnologias como React, Next.js, Node.js, TypeScript e Tailwind CSS. Isso me permite unir o backend das automações à criação de interfaces e dashboards robustos, tornando essas soluções facilmente acessíveis ao usuário final.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
               className="text-lg font-rajdhani text-cyber-white-soft mb-8 leading-relaxed"
             >
-              Atuo com postura analítica, visão sistêmica e mentalidade de melhoria contínua, buscando constantemente evoluir processos, tecnologias e resultados. Meu objetivo é entregar soluções robustas, inteligentes e alinhadas às necessidades do negócio, transformando tecnologia em vantagem competitiva.
+              Meu foco é construir ecossistemas de soluções úteis, escaláveis e orientadas a resultados: menos tarefas manuais, mais eficiência operacional e inteligência tecnológica realmente aplicada como vantagem competitiva para o negócio.
             </motion.p>
 
             {/* Stats */}
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-3 gap-6"
+              className="grid grid-cols-3 gap-5"
             >
               {[
                 { number: '4', label: 'Anos de Experiência' },
                 { number: '15+', label: 'Projetos Concluídos' },
                 { number: '15+', label: 'Tecnologias Dominadas' },
               ].map((stat, index) => (
-                <div key={index} className="text-center p-4 rounded-3xl bg-cyber-gray/30 backdrop-blur-sm border border-cyber-primary/20">
+                <div key={index} className="card-surface text-center p-4">
                   <div className="text-2xl font-orbitron font-bold text-cyber-primary mb-1">
                     {stat.number}
                   </div>
@@ -148,11 +148,11 @@ export const About: React.FC = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-cyber-gray/40 backdrop-blur-sm border border-cyber-primary/20 rounded-3xl p-6 hover:border-cyber-primary/40 transition-all duration-300 group hover:shadow-lg hover:shadow-cyber-primary/10"
+                className="card-surface card-content-pad group"
                 whileHover={{ scale: 1.02 }}
               >
                 <div className="flex items-center mb-4">
-                  <div className="p-3 rounded-2xl bg-cyber-primary/20 mr-4 group-hover:bg-cyber-primary/30 transition-colors">
+                  <div className="icon-badge mr-4">
                     <card.icon className="w-6 h-6 text-cyber-primary" />
                   </div>
                   <h3 className="text-xl font-orbitron font-semibold text-cyber-white">
@@ -163,9 +163,9 @@ export const About: React.FC = () => {
                   {card.items.map((item, itemIndex) => (
                     <li
                       key={itemIndex}
-                      className="text-cyber-white-soft font-rajdhani flex items-center"
+                      className="text-cyber-white-soft font-rajdhani flex items-start leading-relaxed"
                     >
-                      <span className="w-2 h-2 bg-cyber-accent rounded-full mr-3" />
+                      <span className="feature-dot mt-2" />
                       {item}
                     </li>
                   ))}

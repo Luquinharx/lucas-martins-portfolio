@@ -55,8 +55,8 @@ export const SoftSkills: React.FC = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="section-shell">
+      <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -83,7 +83,7 @@ export const SoftSkills: React.FC = () => {
               },
             },
           }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-7"
         >
           {skills.map((skill, index) => (
             <motion.div
@@ -102,10 +102,10 @@ export const SoftSkills: React.FC = () => {
               }}
               className="group h-full"
             >
-              <div className="bg-cyber-gray/40 backdrop-blur-sm border border-cyber-primary/20 rounded-3xl p-6 hover:border-cyber-primary/40 transition-all duration-300 relative overflow-hidden hover:shadow-lg hover:shadow-cyber-primary/10 h-full flex flex-col">
+              <div className="card-surface card-content-pad h-full flex flex-col">
                 {/* Animated Background */}
                 <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br from-${skill.color}/10 via-transparent to-${skill.color}/5`}
+                  className="absolute inset-0 bg-gradient-to-br from-cyber-primary/10 via-transparent to-cyber-secondary/10"
                   animate={{
                     opacity: [0, 0.5, 0],
                   }}
@@ -118,8 +118,8 @@ export const SoftSkills: React.FC = () => {
 
                 {/* Header */}
                 <div className="flex items-center mb-6 relative z-10">
-                  <div className={`p-3 rounded-2xl bg-${skill.color}/20 border border-${skill.color}/30 mr-4 group-hover:bg-${skill.color}/30 transition-colors`}>
-                    <skill.icon className={`w-6 h-6 text-${skill.color}`} />
+                  <div className="icon-badge mr-4">
+                    <skill.icon className="w-6 h-6 text-cyber-primary" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-orbitron font-semibold text-cyber-white leading-tight">
@@ -153,7 +153,7 @@ export const SoftSkills: React.FC = () => {
                       stroke="currentColor"
                       strokeWidth="8"
                       strokeLinecap="round"
-                      className={`text-${skill.color}`}
+                      className="text-cyber-primary"
                       initial={{ strokeDasharray: `0 ${2 * Math.PI * 50}` }}
                       animate={
                         inView
@@ -171,7 +171,7 @@ export const SoftSkills: React.FC = () => {
                   {/* Percentage Text */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <motion.span
-                      className={`text-2xl font-orbitron font-bold text-${skill.color}`}
+                      className="text-2xl font-orbitron font-bold text-cyber-primary"
                       initial={{ opacity: 0, scale: 0 }}
                       animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 + 1 }}
@@ -197,7 +197,7 @@ export const SoftSkills: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mt-16 text-center"
         >
-          <div className="bg-cyber-gray/40 backdrop-blur-sm border border-cyber-primary/20 rounded-3xl p-8 max-w-4xl mx-auto hover:border-cyber-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-cyber-primary/10">
+          <div className="card-surface p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-orbitron font-bold text-cyber-white mb-4">
               Filosofia Profissional
             </h3>

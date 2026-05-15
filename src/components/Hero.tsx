@@ -12,12 +12,12 @@ export const Hero: React.FC = () => {
         <div className="text-center">
           {/* Profile Image */}
           <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="mb-8 relative inline-block"
           >
-            <div className="w-44 h-44 mx-auto rounded-full bg-gradient-to-br from-cyber-primary via-cyber-accent to-cyber-light p-1 shadow-2xl shadow-cyber-primary/30">
+            <div className="w-44 h-44 mx-auto rounded-full bg-gradient-to-br from-cyber-primary via-cyber-accent to-cyber-light p-1 shadow-[0_0_40px_rgba(0,102,204,0.3)]">
               <div className="w-full h-full rounded-full bg-cyber-dark flex items-center justify-center overflow-hidden border-2 border-cyber-white/10">
                 <img
                   src="https://i.im.ge/2025/06/24/J23uMS.bd9cba1f-190a-49eb-b513-e4fa887359ed.jpeg"
@@ -56,7 +56,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="text-xl md:text-2xl font-rajdhani text-cyber-accent mb-8 font-semibold"
           >
-            Desenvolvedor Full Stack
+            Desenvolvedor de Automação RPA, IA & Soluções Web
           </motion.p>
 
           {/* Description */}
@@ -67,8 +67,7 @@ export const Hero: React.FC = () => {
             className="relative mb-8"
           >
             <p className="text-lg font-rajdhani text-cyber-silver max-w-2xl mx-auto leading-relaxed">
-              Construindo aplicações web modernas com foco em experiência do usuário e performance. Especializado em
-              desenvolvimento front-end e back-end com tecnologias modernas.
+              Criando soluções que reduzem trabalho manual, integram sistemas e transformam processos repetitivos em fluxos inteligentes através de automação, inteligência artificial e desenvolvimento web de alta performance.
             </p>
           </motion.div>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Mail, Phone, MapPin, MessageCircle, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle, Github, Linkedin, Instagram } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const [ref, inView] = useInView({
@@ -14,6 +14,7 @@ export const Contact: React.FC = () => {
       icon: Mail,
       title: 'Email',
       value: 'lucasmartinsa3009@gmail.com',
+      link: 'mailto:lucasmartinsa3009@gmail.com',
     },
     {
       icon: Phone,
@@ -55,8 +56,8 @@ export const Contact: React.FC = () => {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
-    <section id="contact" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="section-shell">
+      <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -109,10 +110,10 @@ export const Contact: React.FC = () => {
                 <motion.a
                   key={index}
                   href={info.link}
-                  className="flex items-center p-4 bg-cyber-gray/40 backdrop-blur-sm border border-cyber-primary/20 rounded-3xl hover:border-cyber-primary/40 transition-all duration-300 group hover:shadow-lg hover:shadow-cyber-primary/10"
+                  className="card-surface flex items-center p-4 group"
                   whileHover={{ scale: 1.02, x: 10 }}
                 >
-                  <div className="p-3 rounded-full bg-cyber-primary/20 border border-cyber-primary/30 mr-4 group-hover:bg-cyber-primary/30 transition-colors">
+                  <div className="icon-badge mr-4 rounded-full">
                     <info.icon className="w-6 h-6 text-cyber-primary" />
                   </div>
                   <div>
@@ -137,7 +138,7 @@ export const Contact: React.FC = () => {
                   <motion.a
                     key={index}
                     href={social.url}
-                    className={`p-3 rounded-full border border-cyber-gray-light ${social.color} transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-current/20`}
+                    className={`p-3 rounded-full border border-cyber-gray-light bg-cyber-dark/50 ${social.color} transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-current/20`}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -163,7 +164,7 @@ export const Contact: React.FC = () => {
             }}
             className="flex flex-col items-center justify-center"
           >
-            <div className="bg-cyber-gray/40 backdrop-blur-sm border border-cyber-primary/20 rounded-3xl p-12 text-center hover:border-cyber-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-cyber-primary/10">
+            <div className="card-surface p-12 text-center">
               <motion.div
                 className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/20"
                 whileHover={{ scale: 1.1, rotate: 5 }}
@@ -208,7 +209,7 @@ export const Contact: React.FC = () => {
           className="mt-20 pt-8 border-t border-cyber-primary/20 text-center"
         >
           <p className="font-rajdhani text-cyber-white-soft">
-            © 2024 Portfólio Profissional. Feito por Lucas Martins.
+            © {new Date().getFullYear()} Portfólio Profissional. Feito por Lucas Martins.
           </p>
         </motion.div>
       </div>

@@ -1,3 +1,183 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cyber-black text-cyber-white antialiased;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(56, 189, 248, 0.14), transparent 30%),
+      radial-gradient(circle at 86% 86%, rgba(20, 184, 166, 0.12), transparent 36%),
+      radial-gradient(circle at 52% 98%, rgba(14, 116, 144, 0.08), transparent 35%),
+      #01040d;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply relative py-20;
+  }
+
+  .section-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.022) 0%,
+      rgba(56, 189, 248, 0.02) 42%,
+      rgba(20, 184, 166, 0.03) 100%
+    );
+    opacity: 0.34;
+  }
+
+  .section-shell::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.26) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.04;
+  }
+
+  .project-shell::before {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(56, 189, 248, 0.028) 55%,
+      rgba(14, 165, 140, 0.045) 100%
+    );
+    opacity: 0.4;
+  }
+
+  .project-shell::after {
+    background-image:
+      radial-gradient(rgba(255, 255, 255, 0.24) 1px, transparent 1px),
+      radial-gradient(rgba(125, 211, 252, 0.22) 1px, transparent 1px);
+    background-size: 34px 34px, 44px 44px;
+    background-position: 0 0, 16px 20px;
+    opacity: 0.065;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10;
+  }
+
+  .card-surface {
+    @apply bg-cyber-gray/45 backdrop-blur-md border border-cyber-primary/20 rounded-3xl relative overflow-hidden transition-all duration-300;
+    box-shadow: 0 18px 38px rgba(2, 10, 31, 0.45);
+  }
+
+  .card-surface::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      130deg,
+      rgba(255, 255, 255, 0.08),
+      transparent 30%,
+      transparent 70%,
+      rgba(0, 170, 255, 0.08)
+    );
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+
+  .card-surface:hover {
+    @apply border-cyber-primary/45;
+    box-shadow: 0 22px 55px rgba(0, 102, 204, 0.2);
+    transform: translateY(-4px);
+  }
+
+  .card-surface:hover::before {
+    opacity: 1;
+  }
+
+  .card-content-pad {
+    @apply p-6 sm:p-7;
+  }
+
+  .card-heading {
+    @apply text-xl font-orbitron font-bold text-cyber-white;
+  }
+
+  .card-subheading {
+    @apply text-sm font-orbitron font-semibold text-cyber-primary;
+  }
+
+  .chip-rail {
+    @apply flex flex-wrap gap-2;
+    min-height: 4.5rem;
+    align-content: flex-start;
+  }
+
+  .stack-chip {
+    @apply inline-flex items-center justify-center px-3 py-1.5 rounded-2xl border border-cyber-secondary/35 bg-cyber-dark/70 text-cyber-secondary text-[11px] sm:text-xs font-rajdhani font-semibold leading-none whitespace-nowrap;
+  }
+
+  .project-stack-rail {
+    @apply grid grid-cols-3 gap-2;
+  }
+
+  .project-stack-chip {
+    @apply inline-flex h-10 w-full items-center justify-center rounded-2xl border border-cyber-secondary/35 bg-cyber-dark/70 px-2 text-center text-[11px] sm:text-xs font-rajdhani font-semibold text-cyber-secondary leading-tight overflow-hidden;
+  }
+
+  .tech-card-surface {
+    @apply card-surface card-content-pad h-full min-h-[500px];
+  }
+
+  .tech-card-title {
+    @apply text-[1.02rem] md:text-lg font-orbitron font-semibold text-cyber-white text-center leading-tight whitespace-nowrap;
+  }
+
+  .tech-line-list {
+    @apply relative z-10 grid grid-cols-1 gap-2;
+  }
+
+  .tech-line-chip {
+    @apply inline-flex w-full h-10 items-center justify-center rounded-2xl border border-cyber-secondary/35 bg-cyber-dark/70 px-4 text-center text-xs sm:text-sm font-rajdhani font-semibold text-cyber-secondary leading-none whitespace-nowrap;
+  }
+
+  .feature-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2;
+  }
+
+  .feature-item {
+    @apply text-xs sm:text-sm font-rajdhani text-cyber-white-soft leading-snug flex items-start;
+  }
+
+  .feature-dot {
+    @apply mt-1 mr-2 inline-block w-1.5 h-1.5 rounded-full bg-cyber-accent flex-shrink-0;
+  }
+
+  .badge-pill {
+    @apply rounded-3xl px-4 py-2 border border-cyber-primary/35 bg-cyber-dark/80 backdrop-blur-sm;
+  }
+
+  .icon-badge {
+    @apply p-3 rounded-2xl bg-cyber-primary/20 border border-cyber-primary/30 text-cyber-primary transition-colors duration-300;
+  }
+
+  .card-surface:hover .icon-badge {
+    @apply bg-cyber-primary/30;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-surface,
+  .card-surface::before {
+    transition: none;
+  }
+}

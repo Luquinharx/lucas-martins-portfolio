@@ -16,6 +16,7 @@ type Cert = {
   period: string
   description: string
   img: string
+  imagePosition: string
   features: string[]
   category: string
   link?: string
@@ -30,6 +31,7 @@ const certificates: Cert[] = [
     description:
       "Desenvolvimento de competências voltadas para o tratamento, visualização e interpretação de grandes volumes de dados. Aprofundei conhecimentos em ETL, modelagem de dados, mineração de dados e Big Data Analytics, sempre com foco na geração de insights estratégicos.",
     img: certDados,
+    imagePosition: "50% 8%",
     features: [
       "Python & Power BI",
       "SQL & Apache Hadoop",
@@ -47,6 +49,7 @@ const certificates: Cert[] = [
     description:
       "Aprofundei conhecimentos fundamentais para o desenvolvimento de sistemas robustos e escaláveis. Estudei com foco em arquitetura de software, engenharia de requisitos, design patterns, testes automatizados e integração contínua, aplicando práticas modernas de desenvolvimento ágil.",
     img: certAds,
+    imagePosition: "50% 10%",
     features: [
       "Docker & CI/CD",
       "Microserviços & SOA",
@@ -64,6 +67,7 @@ const certificates: Cert[] = [
     description:
       "Durante o curso de Análise e Desenvolvimento de Sistemas pela UNIMAR, construí uma base sólida em lógica de programação, estruturas de dados, orientação a objetos e engenharia de software, com foco em desenvolver soluções tecnológicas eficientes e escaláveis.",
     img: certEng,
+    imagePosition: "50% 12%",
     features: [
       "Node.js & React",
       "APIs REST",
@@ -82,8 +86,8 @@ export const Certificates: React.FC = () => {
   })
 
   return (
-    <section id="certificates" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="certificates" className="section-shell">
+      <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -114,9 +118,9 @@ export const Certificates: React.FC = () => {
               },
             },
           }}
-          className="grid lg:grid-cols-3 gap-8"
+          className="grid lg:grid-cols-3 gap-7"
         >
-          {certificates.map((cert, index) => (
+          {certificates.map((cert) => (
             <motion.div
               key={cert.id}
               variants={{
@@ -133,18 +137,19 @@ export const Certificates: React.FC = () => {
               }}
               className="group h-full"
             >
-              <div className="bg-cyber-gray/40 backdrop-blur-sm border border-cyber-primary/20 rounded-3xl overflow-hidden hover:border-cyber-primary/40 transition-all duration-300 relative hover:shadow-lg hover:shadow-cyber-primary/10 h-full flex flex-col">
+              <div className="card-surface h-full flex flex-col">
                 {/* Certificate Image */}
-                <div className="relative overflow-hidden h-48">
+                <div className="relative overflow-hidden h-52">
                   <img
                     src={cert.img}
                     alt={cert.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    style={{ objectPosition: cert.imagePosition }}
                   />
                   <div className="absolute inset-0 bg-cyber-dark/60 group-hover:bg-cyber-dark/40 transition-all duration-300" />
 
                   {/* Category Badge */}
-                  <div className="absolute top-4 left-4 flex items-center space-x-2 bg-cyber-dark/80 backdrop-blur-sm rounded-3xl px-4 py-2 border border-cyber-primary/30">
+                  <div className="absolute top-4 left-4 flex items-center gap-2 badge-pill">
                     <Award className="w-4 h-4 text-cyber-primary" />
                     <span className="text-xs font-rajdhani text-cyber-white">
                       {cert.category}
@@ -158,7 +163,7 @@ export const Certificates: React.FC = () => {
                         href={cert.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 bg-cyber-primary/20 backdrop-blur-sm rounded-3xl border border-cyber-primary/30 hover:bg-cyber-primary/30 transition-all duration-300"
+                        className="p-3 bg-cyber-primary/20 backdrop-blur-sm rounded-2xl border border-cyber-primary/30 hover:bg-cyber-primary/30 transition-all duration-300"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -169,8 +174,8 @@ export const Certificates: React.FC = () => {
                 </div>
 
                 {/* Certificate Content */}
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-orbitron font-bold text-cyber-white mb-2 group-hover:text-cyber-primary transition-colors">
+                <div className="card-content-pad flex-1 flex flex-col">
+                  <h3 className="card-heading mb-2 group-hover:text-cyber-primary transition-colors">
                     {cert.title}
                   </h3>
 
@@ -182,22 +187,21 @@ export const Certificates: React.FC = () => {
                     <Calendar className="mr-2" size={14} /> <span>{cert.period}</span>
                   </div>
 
-                  <p className="text-cyber-white-soft font-rajdhani mb-4 text-sm leading-relaxed flex-1">
+                  <p className="text-cyber-white-soft font-rajdhani mb-5 text-sm leading-relaxed flex-1">
                     {cert.description}
                   </p>
 
                   {/* Features */}
                   <div className="mt-auto">
-                    <h4 className="text-sm font-orbitron font-semibold text-cyber-primary mb-3">
+                    <h4 className="card-subheading mb-3">
                       Competências:
                     </h4>
-                    <ul className="grid grid-cols-2 gap-1">
+                    <ul className="chip-rail min-h-0">
                       {cert.features.map((feature, featureIndex) => (
                         <li
                           key={featureIndex}
-                          className="text-xs font-rajdhani text-cyber-white-soft flex items-center"
+                          className="stack-chip"
                         >
-                          <span className="w-1.5 h-1.5 bg-cyber-accent rounded-full mr-2 flex-shrink-0" />
                           {feature}
                         </li>
                       ))}

@@ -13,10 +13,10 @@ import { GridBackground } from './components/GridBackground';
 function App() {
   const SHOW_SOFT_SKILLS = false; // Toggle to show/hide SoftSkills on the site (keeps component in code)
   return (
-    <div className="min-h-screen bg-cyber-black text-cyber-white relative overflow-x-hidden">
+    <div className="min-h-screen text-cyber-white relative overflow-x-hidden">
       <GridBackground />
       <Navigation />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Technologies />
