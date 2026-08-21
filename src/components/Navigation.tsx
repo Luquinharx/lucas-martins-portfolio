@@ -79,7 +79,7 @@ export const Navigation: React.FC = () => {
                 
                 {/* Enhanced Tooltip */}
                 <motion.div
-                  className="absolute left-20 bg-gradient-to-r from-cyber-dark to-cyber-gray backdrop-blur-sm text-cyber-white text-sm font-rajdhani font-medium px-4 py-3 rounded-2xl border-2 border-cyber-primary/30 opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-lg shadow-cyber-primary/20"
+                  className="absolute left-20 bg-gradient-to-r from-cyber-dark to-cyber-gray text-cyber-white text-sm font-rajdhani font-medium px-4 py-3 rounded-2xl border-2 border-cyber-primary/30 opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-lg shadow-cyber-primary/20"
                   initial={{ opacity: 0, x: -10 }}
                   whileHover={{ opacity: 1, x: 0 }}
                 >

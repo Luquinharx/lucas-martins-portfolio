@@ -121,18 +121,8 @@ export const Technologies: React.FC = () => {
               className="group"
             >
               <div className="tech-card-surface">
-                {/* Animated Background */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-cyber-primary/10 via-transparent to-cyber-secondary/10"
-                  animate={{
-                    opacity: [0, 0.3, 0],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    delay: index * 0.5,
-                  }}
-                />
+                {/* Brilho de fundo estatico - ver comentario em Experience.tsx */}
+                <div className="absolute inset-0 bg-gradient-to-br from-cyber-primary/10 via-transparent to-cyber-secondary/10 opacity-30" />
 
                 {/* Header */}
                 <div className="flex flex-col items-center gap-3 mb-5 relative z-10">

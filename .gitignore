@@ -23,3 +23,12 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# arquivo local de imagens fora de uso (nao vai para o repositorio)
+_arquivo-imagens
+
+# artefatos de build do TypeScript
+*.tsbuildinfo
+
+# binarios: nunca devem entrar num repositorio de portfolio
+*.exe

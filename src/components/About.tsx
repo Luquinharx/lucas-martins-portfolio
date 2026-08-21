@@ -128,9 +128,8 @@ export const About: React.FC = () => {
                 icon: GraduationCap,
                 title: 'Formação',
                 items: [
+                  'Pós-graduação Lato Sensu em Inteligência Artificial',
                   'Pós-graduação em Engenharia de Software',
-                  'Pós-graduação Ciência de Dados e Big Data Analytics',
-                  'Pós-graduação Lato Sensu em Inteligência Artificial (em andamento)',
                   'Graduado em Análise e Desenvolvimento de Sistemas',
                 ],
               },

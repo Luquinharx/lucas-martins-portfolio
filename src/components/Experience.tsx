@@ -11,9 +11,23 @@ export const Experience: React.FC = () => {
 
   const experiences = [
     {
+      company: 'Fava Sementes',
+      position: 'Desenvolvedor de IA',
+      period: 'Jun de 2026 - Presente',
+      location: 'Catalão, GO - Híbrido',
+      description:
+        'Atuo no desenvolvimento de soluções de Inteligência Artificial para uso interno, auxiliando as equipes na adoção e aplicação prática de IA no dia a dia.',
+      achievements: [
+        'Modelagem e configuração de agentes de IA para casos de uso internos, ajustando comportamento, fluxos e integrações',
+        'Estruturação de contexto para os modelos com arquiteturas RAG (Retrieval-Augmented Generation)',
+        'Técnicas de recuperação de informação para respostas mais precisas, contextualizadas e confiáveis',
+        'Suporte técnico e orientação a times internos sobre o uso correto das ferramentas de IA',
+      ],
+    },
+    {
       company: 'Kyros Tecnologia | Fábrica de Software',
       position: 'Desenvolvedor',
-      period: 'Dez de 2025 - Presente',
+      period: 'Dez de 2025 - Jun de 2026',
       location: 'Remoto',
       description:
         'Atuo no desenvolvimento de soluções de IA generativa, automação de processos e integrações inteligentes, criando aplicações que conectam dados, sistemas e usuários de forma mais eficiente.',
@@ -122,11 +136,7 @@ export const Experience: React.FC = () => {
               >
                 {/* Timeline Node */}
                 <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-cyber-primary rounded-full border-4 border-cyber-dark z-10 shadow-lg shadow-cyber-primary/50">
-                  <motion.div
-                    className="absolute inset-0 bg-cyber-primary rounded-full"
-                    animate={{ scale: [1, 1.3, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
+                  <div className="absolute inset-0 bg-cyber-primary rounded-full pulse-node" />
                 </div>
 
                 {/* Content Card */}
@@ -135,18 +145,10 @@ export const Experience: React.FC = () => {
                     className="card-surface card-content-pad group"
                     whileHover={{ scale: 1.02 }}
                   >
-                    {/* Holographic Effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-cyber-primary/10 via-transparent to-cyber-secondary/10"
-                      animate={{
-                        opacity: [0, 1, 0],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        delay: index * 0.5,
-                      }}
-                    />
+                    {/* Brilho holografico estatico: animar a opacidade de uma
+                        camada do tamanho do card promovia cada card a uma camada
+                        de compositor propria, com mascara arredondada junto. */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyber-primary/10 via-transparent to-cyber-secondary/10 opacity-70" />
 
                     {/* Header */}
                     <div className="relative z-10 mb-4">

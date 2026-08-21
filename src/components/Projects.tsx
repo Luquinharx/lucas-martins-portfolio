@@ -1,13 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, ShoppingCart, Database, BarChart3, Bot, Globe, FolderGit2 } from 'lucide-react';
-import tecknowhowImg from '../img/tecknowhow.PNG';
-import dashImg from '../img/fotodash.PNG';
-import ecommerceImg from '../img/mid.PNG';
-import almeidaImg from '../img/almeida.PNG';
-import gitImg from '../img/git.PNG';
-import pipelineReceitaImg from '../img/pipeline-receita-federal-simulado.png';
+import { ExternalLink, Github, Database, Globe, Headset, FolderGit2 } from 'lucide-react';
+import terabrainImg from '../img/terabrainlogin.jpeg';
+import tecknowhowImg from '../img/tecknowhow-card.webp';
+import gitImg from '../img/git-card.webp';
 
 export const Projects: React.FC = () => {
   const [ref, inView] = useInView({
@@ -17,58 +14,26 @@ export const Projects: React.FC = () => {
 
   const projects = [
     {
-      title: 'E-Commerce - JapaSkins',
-      description: 'E-commerce voltado para o cenário de jogos online, produzido para um influenciador. Desenvolvido com integração de APIs, gateways de pagamento, disparo inteligente de webhooks e e-mails automatizados.',
-      image: ecommerceImg,
-      imagePosition: '50% 12%',
-      technologies: ['React', 'Node.js', 'APIs de Pagamento', 'Webhooks'],
-      features: ['Integração com gateway de pagamentos', 'Automação de e-mails e comunicação', 'Gestão de inventário e compras'],
-      liveUrl: 'https://rifas.japaskins.com.br/',
-      githubUrl: null,
-      category: 'E-Commerce / Automação',
-      icon: ShoppingCart,
-    },
-    {
-      title: 'Data Pipeline Receita Federal',
-      description: 'Automação Python para extração de dados públicos de CNPJs da Receita Federal. Inclui raspagem, limpeza, consolidação e cruzamento com bases internas, gerando relatórios para análise e atualização de cadastros.',
-      image: pipelineReceitaImg,
-      imagePosition: '50% 50%',
-      technologies: ['Python', 'Web Scraping', 'Automação', 'ETL'],
-      features: ['Raspagem de dados em grande escala', 'Pipeline de limpeza e consolidação', 'Geração de relatórios analíticos automáticos'],
+      title: 'Terabrain — Central de Atendimento',
+      description: 'Central de atendimento que liga conversa, triagem, chamados e projetos em um fluxo só. Um assistente virtual recebe a mensagem, faz as perguntas de triagem, classifica tipo e urgência e encaminha para a pessoa certa já com o contexto montado.',
+      image: terabrainImg,
+      imagePosition: '10% 50%',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'IA de Triagem'],
+      features: [
+        'Triagem automática por assistente virtual (tipo, urgência e fila)',
+        'Gestão de chamados em esteira kanban com protocolo e responsável',
+        'Atendimento, chamados, pessoas e projetos no mesmo contexto',
+      ],
       liveUrl: null,
-      githubUrl: 'https://github.com/Luquinharx/rf-data-pipeline',
-      category: 'Automação de Dados',
-      icon: Database,
-    },
-    {
-      title: 'Dash Analítico',
-      description: 'Dashboard analítico integrando scrapers Python, Firebase Realtime Database e frontend em React/TypeScript para monitoramento de loot, TS, doações, rankings, histórico de membros e gestão administrativa do clã.',
-      image: dashImg,
-      imagePosition: '50% 18%',
-      technologies: ['React', 'TypeScript', 'Python', 'Firebase'],
-      features: ['Integração com Scrapers em tempo real', 'Gestão unificada do clã (Membros/Doações)', 'Painel de ranking e histórico financeiro'],
-      liveUrl: 'https://brotherlyblades.vercel.app/',
       githubUrl: null,
-      category: 'Dashboards Integrados',
-      icon: BarChart3,
-    },
-    {
-      title: 'Micro-SaaS Gestão Gastos',
-      description: 'Plataforma de gestão de gastos e despesas de frotas com um agente de inteligência artificial embutido para análise preventiva de dados e notificações automáticas de insights financeiros.',
-      image: almeidaImg,
-      imagePosition: '50% 15%',
-      technologies: ['Next.js', 'Inteligência Artificial', 'LLMs', 'Node.js'],
-      features: ['Agente IA para análise de gastos', 'Notificação e feedback automatizado', 'Controle intuitivo de frotas e finanças'],
-      liveUrl: 'https://almeidatransportes.vercel.app/',
-      githubUrl: 'https://github.com/Luquinharx/Almeidatransportes',
-      category: 'Saas IA',
-      icon: Bot,
+      category: 'IA / Atendimento',
+      icon: Headset,
     },
     {
       title: 'TecKnowHow — Website',
       description: 'Website para a empresa portuguesa de construção civil e remodelações TecKnowHow, otimizado para retenção e geração de leads, desenvolvido com Framer Motion e UI/UX modernos.',
       image: tecknowhowImg,
-      imagePosition: '50% 14%',
+      imagePosition: '48% 48%',
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
       features: ['Design responsivo e com animações fluidas', 'Foco em geração de Leads e SEO', 'Provas sociais e portfólio de serviços'],
       liveUrl: 'https://www.tecknowhow.pt',
@@ -80,7 +45,7 @@ export const Projects: React.FC = () => {
       title: 'Veja Mais no GitHub',
       description: 'Explore mais projetos, scripts, automações, repositórios de estudos e contribuições open-source diretamente no meu perfil do GitHub.',
       image: gitImg,
-      imagePosition: '50% 10%',
+      imagePosition: '50% 38%',
       technologies: ['Git', 'Repositórios', 'Open-Source', 'Scripts'],
       features: ['Automações e Scripts diversos', 'Contribuições para comunidade', 'Projetos e laboratórios de estudo'],
       liveUrl: 'https://github.com/Luquinharx',
@@ -143,7 +108,7 @@ export const Projects: React.FC = () => {
               >
                 <div className="card-surface h-full flex flex-col">
                   {/* Project Image */}
-                  <div className="relative overflow-hidden h-52 bg-[#0a0e1a] flex items-center justify-center">
+                  <div className="relative overflow-hidden aspect-[16/10] min-h-[190px] bg-[#0a0e1a] flex items-center justify-center">
                     {project.image ? (
                       <img
                         src={project.image}
@@ -171,7 +136,7 @@ export const Projects: React.FC = () => {
                         </div>
                       </div>
                     )}
-                    <div className="absolute inset-0 bg-cyber-dark/60 group-hover:bg-cyber-dark/40 transition-all duration-300 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-cyber-dark/28 via-cyber-dark/14 to-cyber-dark/52 group-hover:from-cyber-dark/16 group-hover:via-cyber-dark/10 group-hover:to-cyber-dark/38 transition-all duration-300 pointer-events-none" />
                    
                     {/* Category Badge */}
                     <div className="absolute top-4 left-4 flex items-center gap-2 badge-pill">
@@ -189,7 +154,7 @@ export const Projects: React.FC = () => {
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-3 bg-cyber-primary/20 backdrop-blur-sm rounded-2xl border border-cyber-primary/30 hover:bg-cyber-primary/30 transition-all duration-300"
+                            className="p-3 bg-cyber-primary/20 rounded-2xl border border-cyber-primary/30 hover:bg-cyber-primary/30 transition-all duration-300"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                           >
@@ -202,7 +167,7 @@ export const Projects: React.FC = () => {
                             href={project.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-3 bg-cyber-white/20 backdrop-blur-sm rounded-2xl border border-cyber-white/30 hover:bg-cyber-white/30 transition-all duration-300"
+                            className="p-3 bg-cyber-white/20 rounded-2xl border border-cyber-white/30 hover:bg-cyber-white/30 transition-all duration-300"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                           >

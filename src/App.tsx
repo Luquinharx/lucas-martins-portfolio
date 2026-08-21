@@ -1,4 +1,3 @@
-import React from 'react';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -8,13 +7,13 @@ import { Projects } from './components/Projects';
 import { Certificates } from './components/Certificates';
 import { SoftSkills } from './components/SoftSkills';
 import { Contact } from './components/Contact';
-import { GridBackground } from './components/GridBackground';
+import { BackgroundShader } from './components/backgrounds/BackgroundShader';
 
 function App() {
   const SHOW_SOFT_SKILLS = false; // Toggle to show/hide SoftSkills on the site (keeps component in code)
   return (
     <div className="min-h-screen text-cyber-white relative overflow-x-hidden">
-      <GridBackground />
+      <BackgroundShader />
       <Navigation />
       <main className="relative z-10">
         <Hero />

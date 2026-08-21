@@ -5,9 +5,9 @@ import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Award, Calendar, ExternalLink } from "lucide-react"
 
-const certEng = new URL("../img/ads.PNG", import.meta.url).href
-const certDados = new URL("../img/dados.PNG", import.meta.url).href
+const certEng = new URL("../img/ads.webp", import.meta.url).href
 const certAds = new URL("../img/engsoft.PNG", import.meta.url).href
+const certIA = new URL("../img/ia.PNG", import.meta.url).href
 
 type Cert = {
   id: string
@@ -25,18 +25,18 @@ type Cert = {
 const certificates: Cert[] = [
   {
     id: "pos-1",
-    title: "Pós-graduação Lato Sensu: Ciência de Dados e Big Data Analytics",
+    title: "Pós-graduação Lato Sensu: Inteligência Artificial",
     institution: "FAMEF",
-    period: "Fev 2025 - Ago 2025",
+    period: "Ago 2025 - Ago 2026",
     description:
-      "Desenvolvimento de competências voltadas para o tratamento, visualização e interpretação de grandes volumes de dados. Aprofundei conhecimentos em ETL, modelagem de dados, mineração de dados e Big Data Analytics, sempre com foco na geração de insights estratégicos.",
-    img: certDados,
+      "Formação focada na aplicação prática de Inteligência Artificial em problemas reais de negócio, com ênfase em automação, otimização de processos, análise de dados e desenvolvimento de soluções inteligentes. Aprofundei conhecimentos em machine learning, redes neurais, LLMs e ferramentas de IA aplicada, direcionando os estudos para o uso da IA em ambientes corporativos.",
+    img: certIA,
     imagePosition: "50% 8%",
     features: [
-      "Python & Power BI",
-      "SQL & Apache Hadoop",
-      "Machine Learning",
-      "Data Storytelling",
+      "IA Generativa & LLMs",
+      "Machine Learning & Redes Neurais",
+      "Agentes de IA & Chatbots",
+      "Automação de Processos & RPA",
     ],
     category: "Pós-Graduação",
     link: "",
@@ -146,7 +146,7 @@ export const Certificates: React.FC = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     style={{ objectPosition: cert.imagePosition }}
                   />
-                  <div className="absolute inset-0 bg-cyber-dark/60 group-hover:bg-cyber-dark/40 transition-all duration-300" />
+                  <div className="absolute inset-0 bg-cyber-dark/60 group-hover:bg-cyber-dark/40 transition-colors duration-300" />
 
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4 flex items-center gap-2 badge-pill">
@@ -163,7 +163,7 @@ export const Certificates: React.FC = () => {
                         href={cert.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 bg-cyber-primary/20 backdrop-blur-sm rounded-2xl border border-cyber-primary/30 hover:bg-cyber-primary/30 transition-all duration-300"
+                        className="p-3 bg-cyber-primary/20 rounded-2xl border border-cyber-primary/30 hover:bg-cyber-primary/30 transition-all duration-300"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -196,11 +196,12 @@ export const Certificates: React.FC = () => {
                     <h4 className="card-subheading mb-3">
                       Competências:
                     </h4>
-                    <ul className="chip-rail min-h-0">
-                      {cert.features.map((feature, featureIndex) => (
+                    <ul className="project-stack-rail">
+                      {cert.features.slice(0, 3).map((feature, featureIndex) => (
                         <li
                           key={featureIndex}
-                          className="stack-chip"
+                          className="project-stack-chip"
+                          title={feature}
                         >
                           {feature}
                         </li>
