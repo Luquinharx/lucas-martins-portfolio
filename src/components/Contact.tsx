@@ -111,7 +111,7 @@ export const Contact: React.FC = () => {
                   key={index}
                   href={info.link}
                   className="card-surface flex items-center p-4 group"
-                  whileHover={{ scale: 1.02, x: 10 }}
+                  whileHover={{ x: 6 }}
                 >
                   <div className="icon-badge mr-4 rounded-full">
                     <info.icon className="w-6 h-6 text-cyber-primary" />

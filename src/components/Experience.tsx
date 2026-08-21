@@ -136,15 +136,14 @@ export const Experience: React.FC = () => {
               >
                 {/* Timeline Node */}
                 <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-cyber-primary rounded-full border-4 border-cyber-dark z-10 shadow-lg shadow-cyber-primary/50">
-                  <div className="absolute inset-0 bg-cyber-primary rounded-full pulse-node" />
+                  {/* estatico de proposito: animar transform aqui promovia a
+                      linha inteira da timeline a uma camada de compositor */}
+                  <div className="absolute inset-0 bg-cyber-primary rounded-full" />
                 </div>
 
                 {/* Content Card */}
                 <div className={`w-full md:w-5/12 ml-12 md:ml-0 ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
-                  <motion.div
-                    className="card-surface card-content-pad group"
-                    whileHover={{ scale: 1.02 }}
-                  >
+                  <div className="card-surface card-content-pad group">
                     {/* Brilho holografico estatico: animar a opacidade de uma
                         camada do tamanho do card promovia cada card a uma camada
                         de compositor propria, com mascara arredondada junto. */}
@@ -193,7 +192,7 @@ export const Experience: React.FC = () => {
                         ))}
                       </ul>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
             ))}

@@ -2,14 +2,20 @@ import React, { useEffect, useRef } from 'react';
 import { MeshGradient } from '@paper-design/shaders-react';
 
 /**
- * Fundo escolhido: mesh gradient WebGL + campo de estrelas.
+ * Fundo do site: mesh gradient WebGL + campo de estrelas.
  *
- * Regras de performance seguidas aqui:
- * - o shader roda em resolucao reduzida (gradiente suave nao precisa de 2x DPI);
- * - o campo de estrelas e pintado UMA vez no canvas, sem requestAnimationFrame;
- * - o que pisca e CSS puro (roda no compositor, nao no main thread);
- * - nenhuma camada usa mix-blend-mode sobre o canvas, que forcaria recomposicao
- *   da tela inteira a cada scroll.
+ * A estrutura de camadas aqui e deliberada. Retangulo preto durante o scroll e
+ * tile que o compositor nao rasterizou a tempo, e ele aparece quando ha muitas
+ * camadas grandes promovidas empilhadas. Por isso:
+ *
+ * - nada aqui usa transform nem will-change: um unico elemento promovido do
+ *   tamanho da viewport obriga tudo que esta acima dele a ser promovido junto;
+ * - os tres veus (escurecer + grao + vinheta) sao UM elemento so, com os
+ *   backgrounds empilhados, em vez de tres elementos sobrepostos;
+ * - o que anima (estrelas piscando e cadentes) fica por ULTIMO no DOM: assim
+ *   nenhuma camada grande precisa ser promovida por sobrepor um elemento
+ *   animado, e as camadas promovidas sao todas de poucos pixels;
+ * - o campo de estrelas e pintado UMA vez no canvas, sem requestAnimationFrame.
  */
 
 const seeded = (seed: number) => {
@@ -17,7 +23,7 @@ const seeded = (seed: number) => {
   return value - Math.floor(value);
 };
 
-// estrelas que piscam: poucas, animadas por CSS
+// estrelas que piscam: poucas, animadas por CSS, cada uma com poucos pixels
 const twinkles = Array.from({ length: 18 }, (_, i) => ({
   left: seeded(i + 11) * 100,
   top: seeded(i + 211) * 100,
@@ -26,8 +32,8 @@ const twinkles = Array.from({ length: 18 }, (_, i) => ({
   delay: seeded(i + 511) * 12,
 }));
 
-// estrelas cadentes: 3, com ciclos longos e primos entre si para nunca
-// caírem juntas. O risco so aparece em ~12% do ciclo; o resto e espera.
+// estrelas cadentes: 3, com ciclos primos entre si para nunca cairem juntas.
+// O risco so aparece em ~12% do ciclo; o resto e espera.
 const shooting = [
   { top: 6, left: 8, cycle: 19, delay: 5 },
   { top: 24, left: 46, cycle: 26, delay: 14 },
@@ -35,28 +41,30 @@ const shooting = [
 ];
 
 export const BackgroundShader: React.FC = () => {
-  const starsRef = useRef<HTMLCanvasElement>(null);
-  const parallaxRef = useRef<HTMLDivElement>(null);
+  const veilRef = useRef<HTMLDivElement>(null);
 
-  // --- campo de estrelas: pintado uma unica vez (e a cada resize) ---
+  // --- campo de estrelas ---
+  // Desenhado num canvas fora da tela e aplicado como IMAGEM no veu. Um
+  // <canvas> no DOM vira camada de compositor propria ("Canvas"), e tudo que o
+  // sobrepoe herda promocao por "Overlap" - inclusive o <main>, que tem a
+  // altura da pagina toda. Como background-image, some uma camada grande.
   useEffect(() => {
-    const canvas = starsRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const veil = veilRef.current;
+    if (!veil) return;
 
     const paint = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      // 1.25x ja deixa os pontos nitidos e segura a memoria de GPU: em 1080p
+      // sao ~13 MB de textura em vez de ~22 MB a 1.5x
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
       const w = window.innerWidth;
-      // 20% a mais de altura: sobra para o parallax sem mostrar borda vazia
-      const h = window.innerHeight * 1.2;
+      const h = window.innerHeight;
 
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
-      canvas.style.width = `${w}px`;
-      canvas.style.height = `${h}px`;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, w, h);
 
       // densidade por area, com teto para nao exagerar em monitor grande
       const count = Math.min(520, Math.round((w * h) / 4200));
@@ -93,6 +101,9 @@ export const BackgroundShader: React.FC = () => {
           ctx.fill();
         }
       }
+
+      // vira imagem: o canvas e descartado e nao existe no DOM
+      veil.style.setProperty('--stars', `url("${canvas.toDataURL('image/png')}")`);
     };
 
     paint();
@@ -107,30 +118,6 @@ export const BackgroundShader: React.FC = () => {
       window.clearTimeout(timer);
       window.removeEventListener('resize', onResize);
     };
-  }, []);
-
-  // --- parallax: as estrelas sobem mais devagar que a pagina ---
-  useEffect(() => {
-    const el = parallaxRef.current;
-    if (!el) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    let ticking = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        // o canvas tem 20% de altura sobrando; deslocar alem disso deixaria a
-        // parte de baixo da tela sem estrela nenhuma numa pagina longa
-        const folga = window.innerHeight * 0.2;
-        const shift = Math.min(window.scrollY * 0.12, folga);
-        // so transform: fica no compositor, nao dispara layout nem paint
-        el.style.transform = `translate3d(0, ${-shift}px, 0)`;
-        ticking = false;
-      });
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
@@ -150,28 +137,25 @@ export const BackgroundShader: React.FC = () => {
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
       />
 
-      {/* escurece o shader para o texto continuar legivel */}
-      <div className="absolute inset-0 bg-[#040814]/55" />
+      {/* veu unico: grao + vinheta + estrelas + escurecer, tudo no mesmo
+          elemento, para nao empilhar varias camadas do tamanho da viewport */}
+      <div ref={veilRef} className="absolute inset-0 bg-veil" />
 
-      {/* estrelas: canvas estatico + piscadas em CSS, tudo sob o mesmo parallax */}
-      <div ref={parallaxRef} className="absolute inset-0 will-change-transform">
-        <canvas ref={starsRef} className="absolute inset-x-0 top-0" />
-
-        {twinkles.map((star, i) => (
-          <span
-            key={`twinkle-${i}`}
-            className="star-twinkle"
-            style={{
-              left: `${star.left}%`,
-              top: `${star.top}%`,
-              width: `${star.size}px`,
-              height: `${star.size}px`,
-              animationDuration: `${star.duration}s`,
-              animationDelay: `${star.delay}s`,
-            }}
-          />
-        ))}
-      </div>
+      {/* o que anima fica por ultimo: nada grande precisa ser promovido acima */}
+      {twinkles.map((star, i) => (
+        <span
+          key={`twinkle-${i}`}
+          className="star-twinkle"
+          style={{
+            left: `${star.left}%`,
+            top: `${star.top}%`,
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+            animationDuration: `${star.duration}s`,
+            animationDelay: `${star.delay}s`,
+          }}
+        />
+      ))}
 
       {shooting.map((s, i) => (
         <span
@@ -185,11 +169,6 @@ export const BackgroundShader: React.FC = () => {
           }}
         />
       ))}
-
-      {/* grao sem mix-blend-mode: mesma textura, sem custo de recomposicao */}
-      <div className="absolute inset-0 bg-grain-flat" />
-
-      <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_50%_45%,transparent_40%,rgba(2,4,10,0.9)_100%)]" />
     </div>
   );
 };

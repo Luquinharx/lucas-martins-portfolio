@@ -148,7 +148,6 @@ export const About: React.FC = () => {
                 key={index}
                 variants={itemVariants}
                 className="card-surface card-content-pad group"
-                whileHover={{ scale: 1.02 }}
               >
                 <div className="flex items-center mb-4">
                   <div className="icon-badge mr-4">
