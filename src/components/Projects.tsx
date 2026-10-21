@@ -174,7 +174,7 @@ export const Projects: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-b from-cyber-dark/28 via-cyber-dark/14 to-cyber-dark/52 group-hover:from-cyber-dark/16 group-hover:via-cyber-dark/10 group-hover:to-cyber-dark/38 transition-all duration-300 pointer-events-none" />
                    
                     {/* Category Badge */}
-                    <div className="absolute top-4 left-4 flex items-center gap-2 badge-pill">
+                    <div className="absolute top-4 right-4 flex items-center gap-2 badge-pill">
                       <project.icon className="w-4 h-4 text-cyber-primary" />
                       <span className="text-xs font-rajdhani text-cyber-white">
                         {project.category}
