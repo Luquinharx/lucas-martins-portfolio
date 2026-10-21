@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, Database, Globe, Headset, FolderGit2 } from 'lucide-react';
-import terabrainImg from '../img/terabrainlogin.jpeg';
-import tecknowhowImg from '../img/tecknowhow-card.webp';
+import { ExternalLink, Github, Database, Globe, Shirt, ShoppingBag, HardHat, Brain, FolderGit2 } from 'lucide-react';
+import tecknowhowImg from '../img/tecknowhow-landing.webp';
+import verdonhaImg from '../img/verdonha-landing.webp';
+import udistreetImg from '../img/udistreet-landing.webp';
+import erpImg from '../img/erp-construcao.webp';
+import viverImg from '../img/viver-clinica.webp';
 import gitImg from '../img/git-card.webp';
 
 export const Projects: React.FC = () => {
@@ -14,32 +17,64 @@ export const Projects: React.FC = () => {
 
   const projects = [
     {
-      title: 'Terabrain — Central de Atendimento',
-      description: 'Central de atendimento que liga conversa, triagem, chamados e projetos em um fluxo só. Um assistente virtual recebe a mensagem, faz as perguntas de triagem, classifica tipo e urgência e encaminha para a pessoa certa já com o contexto montado.',
-      image: terabrainImg,
-      imagePosition: '10% 50%',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'IA de Triagem'],
-      features: [
-        'Triagem automática por assistente virtual (tipo, urgência e fila)',
-        'Gestão de chamados em esteira kanban com protocolo e responsável',
-        'Atendimento, chamados, pessoas e projetos no mesmo contexto',
-      ],
-      liveUrl: null,
-      githubUrl: null,
-      category: 'IA / Atendimento',
-      icon: Headset,
-    },
-    {
-      title: 'TecKnowHow — Website',
-      description: 'Website para a empresa portuguesa de construção civil e remodelações TecKnowHow, otimizado para retenção e geração de leads, desenvolvido com Framer Motion e UI/UX modernos.',
+      title: 'TecKnowHow — Landing Page',
+      description: 'Landing page para a empresa portuguesa de construção civil e remodelações TecKnowHow, otimizada para retenção e geração de leads, com animações em Framer Motion e UI/UX modernos.',
       image: tecknowhowImg,
-      imagePosition: '48% 48%',
+      imagePosition: '50% 40%',
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
       features: ['Design responsivo e com animações fluidas', 'Foco em geração de Leads e SEO', 'Provas sociais e portfólio de serviços'],
       liveUrl: 'https://www.tecknowhow.pt',
-      githubUrl: 'https://github.com/Luquinharx/TecKnowHow',
-      category: 'Web',
+      githubUrl: null,
+      category: 'Landing Page',
       icon: Globe,
+    },
+    {
+      title: 'Verdonha — Landing Page',
+      description: 'Landing page de pré-venda da camisa Campeão Série D da Verdonha, com produto em 3D guiado pela rolagem, pedido direto pelo WhatsApp e painel privado para a diretoria acompanhar pedidos, leads e vendas.',
+      image: verdonhaImg,
+      imagePosition: '50% 45%',
+      technologies: ['React', 'Vite', 'Firebase', 'Vercel'],
+      features: ['Produto em 3D animado pela rolagem', 'Pedidos pelo WhatsApp com painel de vendas'],
+      liveUrl: 'https://verdonha.vercel.app',
+      githubUrl: null,
+      category: 'Landing Page',
+      icon: Shirt,
+    },
+    {
+      title: 'Udi Street — Landing Page',
+      description: 'Landing page e loja online da Udi Street, marca de streetwear de Uberlândia, com identidade visual própria, vitrine em destaque, provador e painel de gestão de pedidos e catálogo.',
+      image: udistreetImg,
+      imagePosition: '50% 30%',
+      technologies: ['React', 'Three.js', 'Fastify', 'Postgres'],
+      features: ['Vitrine com ofertas, novidades e provador', 'Checkout, cupons e painel de gestão'],
+      liveUrl: 'https://udistreet.com.br',
+      githubUrl: null,
+      category: 'Landing Page',
+      icon: ShoppingBag,
+    },
+    {
+      title: 'ERP de Construção Civil',
+      description: 'Sistema de gestão para a TecKnowHow que reúne orçamentos, clientes, obras, materiais, funcionários e financeiro no mesmo sítio, com cálculo automático de custo/hora, impostos e geração de propostas em PDF.',
+      image: erpImg,
+      imagePosition: '50% 50%',
+      technologies: ['Next.js', 'TypeScript', 'Firebase', 'Tailwind CSS'],
+      features: ['Orçamentos com custo, venda e margem por serviço', 'Custo/hora e IRS calculados pelas tabelas oficiais'],
+      liveUrl: null,
+      githubUrl: null,
+      category: 'Sistema / ERP',
+      icon: HardHat,
+    },
+    {
+      title: 'Viver Clínica — SaaS de Psicologia',
+      description: 'Sistema de gestão para clínica de psicologia com prontuário, documentos com assinatura eletrônica, registro de frequência e agenda de salas para três unidades, com acesso por papel e trilha de auditoria.',
+      image: viverImg,
+      imagePosition: '0% 0%',
+      technologies: ['Node.js', 'SQLite', 'JavaScript', 'HTML/CSS'],
+      features: ['Prontuário e documentos com assinatura eletrônica', 'Agenda de salas com detecção de conflito'],
+      liveUrl: null,
+      githubUrl: null,
+      category: 'Sistema / SaaS',
+      icon: Brain,
     },
     {
       title: 'Veja Mais no GitHub',
@@ -48,7 +83,7 @@ export const Projects: React.FC = () => {
       imagePosition: '50% 38%',
       technologies: ['Git', 'Repositórios', 'Open-Source', 'Scripts'],
       features: ['Automações e Scripts diversos', 'Contribuições para comunidade', 'Projetos e laboratórios de estudo'],
-      liveUrl: 'https://github.com/Luquinharx',
+      liveUrl: null,
       githubUrl: 'https://github.com/Luquinharx',
       category: 'Repositórios',
       icon: FolderGit2,
